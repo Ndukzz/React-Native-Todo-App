@@ -1,10 +1,20 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity} from "react-native"
 
-const TodoItem = ({item}) => {
+export default TodoItem = ({ item, pressHandler }) => {
+
   return (
-    <div>TodoItem</div>
+    <TouchableOpacity onPress={()=> {pressHandler(item.key)}}>
+      <Text style={styles.item}>{item.text}</Text>
+    </TouchableOpacity>
   )   
 } 
 
-export default TodoItem
+const styles = StyleSheet.create({
+  item: {
+    padding: 20,
+    marginTop: 15,
+    backgroundColor: 'teal',
+    borderRadius: 10,
+  }
+})
